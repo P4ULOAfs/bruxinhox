@@ -500,6 +500,7 @@ async function starts() {
                 fs.writeFileSync('./database/json/user.json', JSON.stringify(user))
                  break
 		case 'daftar':
+		case 'rg':
 					client.updatePresence(from, Presence.composing)
 					if (isUser) return reply('você já está registrado')
 					if (isBanned) return reply(mess.only.benned)
@@ -644,6 +645,7 @@ async function starts() {
 				case 'stickergift':
 				case 'stikergif':
 				case 'stikergift':
+				case 'figu':
 						if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -842,6 +844,7 @@ async function starts() {
 				case 'groupinfo':
 				case 'infogrup':
 				case 'grupinfo':
+				case 'gpinfo':
 				if (isBanned) return reply(mess.only.benned)    
 				if (!isUser) return reply(mess.only.userB)
                 client.updatePresence(from, Presence.composing)
@@ -2332,7 +2335,6 @@ async function starts() {
 
 			case 'persengay':
 			case 'gaypersen':
-			case 'gay':
 				if (!isUser) return reply(mess.only.userB)
 				if (isLimit(sender)) return reply(limits.limitend(pushname2))
 				if (args.length < 1) return reply('marque seu amigo!')
@@ -2605,7 +2607,6 @@ async function starts() {
 				case 'listadmin':
 				case 'adminlist':
 				case 'adminslist':
-				case 'admlist':
 				if (isBanned) return reply(mess.only.benned)    
 				if (!isUser) return reply(mess.only.userB)
 					if (!isGroup) return reply(mess.only.group)
